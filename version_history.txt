@@ -1,0 +1,74 @@
+Version History for Parchment Adventures:
+
+v.0.18
+- Added starting files and python to the game folder
+- Adjusted button placements
+- 
+
+v.0.17
+- Added rolling history saves instead of saving everything.
+- Changed the game state manager to work asynchronously.
+- Restriced typing and sending commands during streaming.
+- Added summaries for endless gameplay.
+- Added tokenisation for endless gameplay.
+
+v.0.16
+- Changed the game state parser a bit
+- Changed the answers to streaming instead of coming as a whole.
+- Removed old processing label due to incompatibility.
+- Added asynchronous tasks.
+- Added processing texts to the quests and items.
+- Removed the ability to remove responses using backspace.
+
+v.0.15:
+- Refactored GUI code into an object-oriented structure for better maintainability and scalability.
+- Adjusted widget placement to ensure consistent height and alignment at the top of the window.
+- Fixed initial widget positioning issues by updating layout immediately after window creation.
+- Integrated update logic for ConfigUI buttons into the main GUI update method.
+- Moved widget size specifications from individual classes to the GUI class for flexibility in layout management.
+
+v.0.14:
+- Implemented configurations and saving configurations.
+- GUI for making configurations.
+- Correctly updating window with element placements.
+- Added themes.
+
+v.0.13:
+- ?
+
+v.0.12:
+- ?
+
+v.0.11:
+- Restructered game logic and saving history.
+
+v.0.10:
+- Implemented narrator and game state manager using the game state data to make decisions.
+
+v.0.09:
+- ?
+
+v.0.08:
+- Implemented the game state manager to track quests and items.
+
+v.0.07:
+- ?
+
+v.0.06:
+- ?
+
+v.0.05:
+- Loading and saving narrative history and conversation history
+
+v.0.04:
+- Prosessing commands with OpenAI API
+
+v.0.03:
+- Game logic for proessing commands
+
+v.0.02:
+- Main GUI and console implemented
+
+v.0.01:
+- [Details of changes in v.0.01]
+
