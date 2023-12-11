@@ -4,6 +4,7 @@ import os
 
 def parse_game_state():
     game_state_dir = '../data'
+    os.makedirs(game_state_dir, exist_ok=True)
     game_state_files = [f for f in os.listdir(game_state_dir) if f.startswith('game_state_')]
     if not game_state_files:
         game_state_file_path = os.path.join('../config', 'game_state.txt')

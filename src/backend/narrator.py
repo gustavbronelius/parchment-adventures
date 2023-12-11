@@ -9,7 +9,8 @@ from backend.shared_timestamp import SharedTimestamp
 
 class Narrator:
     def __init__(self, game_gui, history_manager):
-        self.data_dir = '../data'  # Define the data directory
+        self.data_dir = '../data'
+        os.makedirs(self.data_dir, exist_ok=True)
         self.conversation_history = self.load_past_conversation()
         self.initialize_openai_context()
         self.game_gui = game_gui

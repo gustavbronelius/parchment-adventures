@@ -10,12 +10,11 @@ from datetime import datetime
 
 
 class GameStateManager:
-    GAME_STATE_FILE = '../data/game_state.txt'
-
     def __init__(self, history_manager):
         self.history_manager = history_manager
         self.game_state = self.load_game_state()
-        self.data_dir = '../data'  # Define a separate directory for GameStateManager
+        self.data_dir = '../data'
+        os.makedirs(self.data_dir, exist_ok=True)
         self.conversation_history = self.load_past_conversation()
         self.initialize_openai_context()  # Initialize OpenAI context during the object creation
         self.api_key = self.get_api_key()  # Get the API key

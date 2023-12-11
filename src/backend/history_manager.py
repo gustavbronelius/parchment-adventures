@@ -11,7 +11,8 @@ class HistoryManager:
     
     def __init__(self):
         self.narrative_history_dir = '../data'
-        self.data_dir = '../data'  # Define data_dir before calling load_past_conversation
+        self.data_dir = '../data'
+        os.makedirs(self.data_dir, exist_ok=True)
         self.narrative_history = self.load_narrative_history()  # Load existing narrative history
         self.conversation_history = self.load_past_conversation()  # Load past conversation history
         self.api_key = self.get_api_key()  # Get API key
