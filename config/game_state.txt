@@ -1,0 +1,23 @@
+## Items
+- Fresh Water Canteen: Holds essential fresh water.
+- Grappling Hook: For climbing and ship boarding.
+- Signal Flare: To signal for help.
+- Rusty Rapier: It will have to work.
+
+## Quests
+### Find Your Crew
+- **Status**: Starter
+- **Details**: Locate and reunite with your shipwrecked crew.
+
+### Defend the Island
+- **Status**: Early Game
+- **Details**: Protect your island base from rival pirates.
+
+### Island Exploration
+- **Status**: Ongoing
+- **Details**: Discover resources and secrets on the island.
+
+### Recover the Ancestral Cutlass
+- **Status**: Mid Game
+- **Details**: Retrieve your lost family cutlass.
+

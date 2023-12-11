@@ -1,0 +1,20 @@
+Objective: Create a short and concise summary of a narrative, incorporating new user input while retaining key elements from the previous summary. Maximum 100 words.
+
+Inputs:
+
+1. Previous Summary: A brief summary of the existing narrative. It encapsulates the crucial events, characters, and plot points up to the current moment.
+2. New User Input: Recent additions to the narrative, including user actions, dialogue, and developments in the story.
+
+Process:
+
+1. Analyze the Previous Summary: Understand the main themes, characters, and plotlines. Identify which elements are crucial to the overall story.
+2. Incorporate New User Input: Integrate the new information provided by the user. This includes any new events, character developments, or shifts in the storyline.
+3. Generate the Updated Summary: Combine the key elements of the previous summary with the new input. The updated summary should:
+4. Be concise: Focus on maintaining brevity while conveying essential information.
+5. Be coherent: Ensure that the new summary logically flows from the previous narrative, maintaining consistency in characters and plot.
+6. Highlight important changes: Clearly indicate any significant new developments or twists in the plot.
+7. Preserve continuity: Keep pivotal elements from the previous summary that are still relevant to the current state of the narrative.
+
+Output:
+
+A short summary that encapsulates the narrative up to the current point, including both previous and new elements, presented in a coherent and summarised manner.
