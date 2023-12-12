@@ -7,7 +7,7 @@ Parchment Adventures is a extremely versatile text-based adventure based on gene
 # Introduction
 Parchment Adventures is inspired by text-based adventure games from the 80s and 90s. The twist is that this game uses modern day generative AI, in this case OpenAI, to create the story and process user commands. This leads to an extremely versatile game where you can basically do anything you want in whatever setting you'd like.
 
-I partially created this game to give my students a more interactive way to practice reading which is why it has features like dictionaries and word lists.
+I partially created this game to give my students a more interactive way to practice reading.
 
 # Getting Started
 ## How to install and run
