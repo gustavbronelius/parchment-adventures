@@ -71,8 +71,13 @@ The game state states the items and quests you start with. Feel free to change t
 - history_manager_task_description.txt
 
 #### Narrator
+The narrator is the... narrator of the game. You can check the current task description for what the narrator is tasked to do. Changing the task can lead to unforseen consequences/rewards. Right now, the narrator doesn't have a lot of restrictions. You could add things like magic, 2D side-scrolling universes, weight constraingts, etc.
+
 #### Game State Manager
+The game state manager is, at the moment, only tasked with controlling items and quests. You could also task it with keeping track of how much weight the player is carrying, how many spells they are currently controlling, and more. Please share your ideas on Discord. 
+
 #### History Manager
+You can change the history manager if you want, but I don't really know what for... If you have any suggestions, please get back to me! At the moment it is tasked with summarising the story so that the game can be played endlessly.
 
 ## Contact
 Join me on [Discord](https://discord.gg/pWU7NNzq) (https://discord.gg/pWU7NNzq) for discussing suggestions, sharing configurations, bugs, and other things.
