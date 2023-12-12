@@ -14,10 +14,12 @@ I partially created this game to give my students a more interactive way to prac
 I understand that for some people this experience of installing a game might feel a bit strange and scary. If you get stuck or have some questions, join me on [Discord](https://discord.gg/pWU7NNzq) and I can help you.
 
 ### 1. Download the game
-Use https://github.com/gustavbronelius/parchment-adventures/archive/refs/heads/main.zip to download the game.
+Download the game at https://github.com/gustavbronelius/parchment-adventures/archive/refs/heads/main.zip.
 
 ### 2. Extract the game
 After downloading the game, navigate to the folder where it is downloaded. On a newer version of Windows, you should be able to right-click the folder and press "Extract". If that doesn't work, you can download 7zip or Winrar.
+
+![Extracted folder](assets/images/folder.png)
 
 ### 3. Python
 You need to install Python on your computer to run the game. You can download Python on https://www.python.org/downloads/.
@@ -29,11 +31,15 @@ After installing Python, you need to navigate to the extracted folder, parchment
 2. start (Windows)
 
 ### 5. OpenAI API Key
-The first time you run the game, you will be asked to enter your OpenAI API key. The API key is used to connect your game to the generative AI. Processing commands with the AI costs about 0.001 to 0.01 USD per command (it depends a bit on how long your game has been running).
+The first time you run the game, you will be asked to enter your OpenAI API key (check the black and white console window). 
+
+![Enter your API key:](assets/images/api_key.png)
+
+The API key is used to connect your game to the generative AI. Processing commands with the AI costs about 0.001 to 0.01 USD per command (it depends a bit on how long your game has been running).
 
 You can order a API key at https://platform.openai.com/api-keys. You also need to make sure you have some dollar available on the account the API key is connected to. 5 USD will be more than enough.
 
-- You can share your API key with friends or family members. Just make sure that you don't share it online with strangers (they can use your API key to run commands which might quickly use those 5 USD on your account).
+- You can share your API key with friends or family members who would like to play the game. Just make sure that you don't share it online with strangers (they can use your API key to run commands which might quickly use those 5 USD on your account). In case the API key goes escapes into the wild, you can remove it on the openai website.
 
 - This key is vital to running the game as without it, no commands can be processed.
 
@@ -42,6 +48,8 @@ You can order a API key at https://platform.openai.com/api-keys. You also need t
 ## Usage
 ### How to play
 Start the game with the file "start (Windows)"
+
+![Extracted folder](assets/images/folder.png)
 
 The game is played using the main console window. Write a command and press enter to send it to the narrator. The narrator will continue the story and the game will update your quests, items, etc.
 
