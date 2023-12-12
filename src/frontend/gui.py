@@ -115,23 +115,20 @@ class GameGUI:
         canvas_width = self.canvas.winfo_width()
         canvas_height = self.canvas.winfo_height()
 
-        # Calculate the vertical center of the canvas
-        vertical_center = canvas_height / 2
+        # Calculate new dimensions for the console_widget
+        console_widget_new_width = int(canvas_width * 0.5)  # Adjust as needed
+        console_widget_x = (canvas_width - console_widget_new_width) // 2
+        console_widget_y = canvas_height / 2 - self.console_widget.winfo_height() / 2
 
-        # Update the position of console_widget to keep it centered
-        console_widget_width = self.console_widget.winfo_width()
-        console_widget_height = self.console_widget.winfo_height()
-        console_widget_x = (canvas_width / 2) - (console_widget_width / 2)
-        console_widget_y = (canvas_height / 2) - (console_widget_height / 2)
+        # Adjust the size of the window within the canvas that holds the console_widget
+        self.canvas.itemconfig(self.console_window, width=console_widget_new_width)
         self.canvas.coords(self.console_window, console_widget_x, console_widget_y)
 
-        # Get the current dimensions of items_gui and quests_gui
-        items_gui_width = self.items_gui.winfo_width()
-        quests_gui_width = self.quests_gui.winfo_width()
-
-        # Update the positions of items_gui and quests_gui
-        self.canvas.coords(self.items_window_window, canvas_width - (items_gui_width / 2 + 50), vertical_center)
-        self.canvas.coords(self.quests_window_window, 50 + quests_gui_width / 2, vertical_center)
+        # Update positions of items_gui and quests_gui
+        items_gui_x = canvas_width - (self.items_gui.winfo_width() / 2 + 50)
+        quests_gui_x = 50 + (self.quests_gui.winfo_width() / 2)
+        self.canvas.coords(self.items_window_window, items_gui_x, canvas_height / 2)
+        self.canvas.coords(self.quests_window_window, quests_gui_x, canvas_height / 2)
 
         # Update the position of the background image if it exists
         if hasattr(self.config_ui, 'background_image_id'):
@@ -141,7 +138,7 @@ class GameGUI:
 
         # Update the positions of the buttons
         if hasattr(self, 'config_ui') and self.config_ui:
-            self.config_ui.update_button_positions()   
+            self.config_ui.update_button_positions()
 
     def on_window_resize(self, event):
         current_width = event.width
