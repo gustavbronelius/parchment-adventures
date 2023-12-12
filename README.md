@@ -76,3 +76,10 @@ The game state states the items and quests you start with. Feel free to change t
 
 ## Contact
 Join me on [Discord](https://discord.gg/pWU7NNzq) (https://discord.gg/pWU7NNzq) for discussing suggestions, sharing configurations, bugs, and other things.
+
+## Support
+You can support me by listening to my music:
+- [Blåval](https://youtu.be/CR8DCaJX8Uo)
+- [C.K.O.](https://youtu.be/oF1Mfcrwf7Y)
+- [Shadowork](https://youtu.be/R8fXrOj0viI)
+- [BurningAlien](https://youtu.be/jzIckNYEK94)
