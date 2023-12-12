@@ -221,17 +221,17 @@ class ConfigUI:
         self.cycle_theme_button_id = self.canvas.create_window(896, 200, anchor=tk.CENTER, window=cycle_theme_button)
 
     def update_ui_with_theme(self, theme):
-        #print(f"[ConfigUI] Updating UI with theme: {theme.name}")
-
         # Get the current canvas width and height
         canvas_width = self.canvas.winfo_width()
         canvas_height = self.canvas.winfo_height()
+
+        # Set the canvas background color to the theme's console background color
+        self.canvas.config(bg=theme.console_bg_color)
 
         # Clear any existing background image
         if hasattr(self, 'background_image_id'):
             self.canvas.delete(self.background_image_id)
             delattr(self, 'background_image_id')
-            #print("[ConfigUI] Cleared existing background image")
 
         # Try to load the new background image if it exists
         if hasattr(theme, 'background_image') and theme.background_image:
@@ -240,35 +240,22 @@ class ConfigUI:
                 new_background_image_tk = ImageTk.PhotoImage(new_background_image)
                 self.background_image_id = self.canvas.create_image(canvas_width // 2, canvas_height // 2, anchor=tk.CENTER, image=new_background_image_tk, tags="background")
                 self.canvas.lower(self.background_image_id)  # Ensure the image is behind other canvas items
-                self.background_image = new_background_image_tk  # Update reference to prevent garbage collection
-                #print("[ConfigUI] Set new background image")
-                
-                # Force the canvas to redraw itself
+                self.background_image = new_background_image_tk
                 self.canvas.update()
-                
             except FileNotFoundError:
-                #print(f"[ConfigUI] Background image not found for theme '{theme.name}'. Using solid color fallback.")
-                self.canvas.config(bg=theme.console_bg_color)  # Use console background color as fallback
-                #print("[ConfigUI] Set solid color background")
-        else:
-            # If the theme doesn't have a background image attribute or it's set to None
-            self.canvas.config(bg=theme.console_bg_color)
-            #print("[ConfigUI] Set solid color background")
+                pass  # Background image not found, already set the background color
 
         # Update the text color in console widget and other text widgets
         self.console_widget.config(fg=theme.text_color)
-        self.items_gui.update_text_color(theme.text_color)  # Update the text color in items GUI
-        self.quests_gui.update_text_color(theme.text_color)  # Update the text color in quests GUI
+        self.items_gui.update_text_color(theme.text_color)
+        self.quests_gui.update_text_color(theme.text_color)
 
         # Update console background color
         self.console_widget.config(bg=theme.console_bg_color)
-        self.items_gui.update_bg_color(theme.console_bg_color)  # Update the background color in items GUI
-        self.quests_gui.update_bg_color(theme.console_bg_color)  # Update the background color in quests GUI
+        self.items_gui.update_bg_color(theme.console_bg_color)
+        self.quests_gui.update_bg_color(theme.console_bg_color)
 
-        # Another call to force the canvas to redraw
         self.canvas.update()
-
-        #print("[ConfigUI] Updated UI with theme")
 
 
     def set_initial_background(self):
