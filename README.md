@@ -79,10 +79,10 @@ The game state manager is, at the moment, only tasked with controlling items and
 #### History Manager
 You can change the history manager if you want, but I don't really know what for... If you have any suggestions, please get back to me! At the moment it is tasked with summarising the story so that the game can be played endlessly.
 
-## Contact
+# Contact
 Join me on [Discord](https://discord.gg/pWU7NNzq) (https://discord.gg/pWU7NNzq) for discussing suggestions, sharing configurations, bugs, and other things.
 
-## Support
+# Support
 You can support me by listening to my music:
 - [Blåval](https://youtu.be/CR8DCaJX8Uo)
 - [C.K.O.](https://youtu.be/oF1Mfcrwf7Y)
