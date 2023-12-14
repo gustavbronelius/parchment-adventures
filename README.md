@@ -1,6 +1,6 @@
 # Parchment Adventures
 
-Parchment Adventures is a extremely versatile text-based adventure based on generative AI.
+Parchment Adventures is an extremely versatile text-based adventure based on generative AI.
 
 ![Parchment Adventures Screenshot](assets/images/Parchment-adventures.png)
 
@@ -11,39 +11,39 @@ I partially created this game to give my students a more interactive way to prac
 
 # Getting Started
 ## How to install and run
-I understand that for some people this experience of installing a game might feel a bit strange and scary. If you get stuck or have some questions, join me on [Discord](https://discord.gg/pWU7NNzq) and I can help you.
+I understand that for some people, installing a game might feel a bit unfamiliar or daunting. If you get stuck or have some questions, join me on [Discord](https://discord.gg/pWU7NNzq) and I can help you.
 
-### 1. Download the game
+### Step 1. Download the game
 Download the game at https://github.com/gustavbronelius/parchment-adventures/archive/refs/heads/main.zip.
 
-### 2. Extract the game
-After downloading the game, navigate to the folder where it is downloaded. On a newer version of Windows, you should be able to right-click the folder and press "Extract". If that doesn't work, you can download 7zip or Winrar.
+### Step 2. Extract the game
+After downloading, locate the downloaded folder. On most recent versions of Windows, you should be able to right-click the folder and select 'Extract All.' If not, you can use tools like 7-Zip or WinRAR for extraction.
 
 ![Extracted folder](assets/images/folder.png)
 
-### 3. Python
+### Step 3. Python
 You need to install Python on your computer to run the game. You can download Python on https://www.python.org/downloads/.
 
-### 4. Installing and running
+### Step 4. Installing and running
 After installing Python, you need to navigate to the extracted folder, parchment-adventures-main. In that folder, you need to run these two files:
 
 1. Install dependencies (Windows)
 2. start (Windows)
 
-### 5. OpenAI API Key
+### Step 5. OpenAI API Key
 The first time you run the game, you will be asked to enter your OpenAI API key (check the black and white console window). 
 
 ![Enter your API key:](assets/images/api_key.png)
 
 The API key is used to connect your game to the generative AI. Processing commands with the AI costs about 0.001 to 0.01 USD per command (it depends a bit on how long your game has been running).
 
-You can order a API key at https://platform.openai.com/api-keys. You also need to make sure you have some dollar available on the account the API key is connected to. 5 USD will be more than enough.
+Visit OpenAI's API platform https://platform.openai.com/api-keys to get your API key. Ensure you have some funds associated with your account; $5 should be more than enough.
 
 - You can share your API key with friends or family members who would like to play the game. Just make sure that you don't share it online with strangers (they can use your API key to run commands which might quickly use those 5 USD on your account). In case the API key goes escapes into the wild, you can remove it on the openai website.
 
 - This key is vital to running the game as without it, no commands can be processed.
 
-- If you are worried about how much the game is costing, you can check usage at this website https://platform.openai.com/usage. Fun fact, during the month long development of this game, I have used about 6 USD (Dec 23).
+- If you are worried about how much the game is costing to run, you can check usage at this website https://platform.openai.com/usage. Fun fact, during the month long development of this game, I have used about 6 USD (Dec 23).
 
 ## Usage
 ### How to play
@@ -71,7 +71,7 @@ The game state states the items and quests you start with. Feel free to change t
 - history_manager_task_description.txt
 
 #### Narrator
-The narrator is the... narrator of the game. You can check the current task description for what the narrator is tasked to do. Changing the task can lead to unforseen consequences/rewards. Right now, the narrator doesn't have a lot of restrictions. You could add things like magic, 2D side-scrolling universes, weight constraingts, etc.
+The narrator is the... narrator of the game. You can check the current task description for what the narrator is tasked to do. Changing the task can lead to unforseen consequences/rewards. Right now, the narrator doesn't have a lot of restrictions. You could add things like magic, 2D side-scrolling universes, weight constraints, etc.
 
 #### Game State Manager
 The game state manager is, at the moment, only tasked with controlling items and quests. You could also task it with keeping track of how much weight the player is carrying, how many spells they are currently controlling, and more. Please share your ideas on Discord. 

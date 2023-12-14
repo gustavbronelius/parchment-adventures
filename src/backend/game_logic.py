@@ -4,13 +4,16 @@ import asyncio
 from backend.game_state_parser import parse_game_state
 
 class GameLogic:
-    def __init__(self, history_manager, narrator, game_state_manager, items_gui, quests_gui, game_gui):
+    def __init__(self, history_manager, narrator, game_state_manager, items_gui, quests_gui, game_gui, lexi, word_list_gui):
         self.history_manager = history_manager
         self.narrator = narrator
         self.game_state_manager = game_state_manager
         self.items_gui = items_gui
         self.quests_gui = quests_gui
         self.game_gui = game_gui
+        self.lexi = lexi
+        self.word_list_gui = word_list_gui
+
         self.accept_command = True 
 
     async def process_command_streaming(self, command):
@@ -35,17 +38,22 @@ class GameLogic:
 
         # Update GUI
         items, quests = parse_game_state()
+        latest_word_list = self.lexi.load_word_list()
         self.items_gui.update_items(items)
         self.quests_gui.update_quests(quests)
+        self.word_list_gui.update_word_list(latest_word_list)
 
         print("[GameLogic] Finished update_quests_and_items")
 
         # TODO Reset the is_processing_command flag to False. Move this to another place so that it works with the summary.
+        # This seems to be fixed?
         self.game_gui.set_processing_command(False)
     
     def initialize_game_state(self):
         # Parse the game state
         items, quests = parse_game_state()
+        latest_word_list = self.lexi.load_word_list()
         # Update GUI components
         self.items_gui.update_items(items)
         self.quests_gui.update_quests(quests)
+        self.word_list_gui.update_word_list(latest_word_list)

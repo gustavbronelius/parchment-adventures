@@ -19,10 +19,10 @@ class ConfigManager:
                 return data
         except FileNotFoundError:
             print("Error: 'config.json' file not found.")
-            return {}  # Return an empty dictionary if the file doesn't exist
+            return {}  # Return an empty list if the file doesn't exist
         except json.JSONDecodeError:
             print("Error: Invalid JSON in 'config.json'.")
-            return {}  # Return an empty dictionary if the file contains invalid JSON
+            return {}  # Return an empty list if the file contains invalid JSON
 
     def get_config(self, key):
         return self.config.get(key)

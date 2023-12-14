@@ -8,13 +8,14 @@ from datetime import datetime
 from backend.shared_timestamp import SharedTimestamp
 
 class Narrator:
-    def __init__(self, game_gui, history_manager):
+    def __init__(self, game_gui, history_manager, lexi):
         self.data_dir = '../data'
         os.makedirs(self.data_dir, exist_ok=True)
         self.conversation_history = self.load_past_conversation()
         self.initialize_openai_context()
         self.game_gui = game_gui
         self.history_manager = history_manager
+        self.lexi = lexi
         self.full_response = ""
 
     def load_game_state(self):
@@ -63,17 +64,17 @@ class Narrator:
 
 
     def create_prompt_string(self):
-        # Load the task description from a file
-        with open('../config/narrator_task_description.txt', 'r') as file:
-            task_description = file.read()
-        
+
         # Load the latest game state
         game_state = self.load_game_state()
+        word_list = self.lexi.load_word_list()
 
         # Combine the formatted strings into the final prompt string
         prompt_string = (
             "====Game State====\n" +
             game_state +
+            "====Word List====\n" +
+            word_list +
             "====User command====\n"
         )
         return prompt_string    
