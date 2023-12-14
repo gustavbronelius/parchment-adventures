@@ -13,12 +13,14 @@ from backend.game_state_manager import GameStateManager
 from frontend.themes import themes_list
 
 class ConfigUI:
-    def __init__(self, root, canvas, console_widget, items_gui, quests_gui, config_manager, history_manager, game_state_manager, narrator):
+    def __init__(self, root, canvas, console_widget, items_gui, quests_gui, word_list_gui, config_manager, history_manager, game_state_manager, narrator, game_gui):
+        self.game_gui = game_gui
         self.root = root
         self.canvas = canvas
         self.console_widget = console_widget
         self.items_gui = items_gui
         self.quests_gui = quests_gui
+        self.word_list_gui = word_list_gui
         self.config_manager = config_manager
         self.history_manager = history_manager
         self.game_state_manager = game_state_manager
@@ -37,6 +39,7 @@ class ConfigUI:
         self.create_font_size_button()
         self.create_font_type_button()
         self.create_delete_latest_save_button()
+        self.create_toggle_word_list_button()
 
         # Bind the Configure event to the update_button_positions method
         self.root.bind('<Configure>', lambda event: self.update_button_positions())
@@ -98,6 +101,16 @@ class ConfigUI:
         # Create the window once and store its ID
         self.font_type_button_id = self.canvas.create_window(896, 100, anchor=tk.CENTER, window=font_type_button)
 
+    def create_cycle_theme_button(self):
+        # Create the button for cycling themes and place it on the canvas
+        cycle_theme_button = tk.Button(self.root, text="Theme", command=self.cycle_theme)
+        # Create the window once and store its ID
+        self.cycle_theme_button_id = self.canvas.create_window(896, 200, anchor=tk.CENTER, window=cycle_theme_button)
+
+    def create_toggle_word_list_button(self):
+        toggle_button = tk.Button(self.root, text="Toggle Word List", command=self.game_gui.toggle_word_list_view)
+        self.toggle_word_list_button_id = self.canvas.create_window(896, 250, anchor=tk.CENTER, window=toggle_button)
+
     def cycle_font_size(self):
         # Cycle through font sizes
         self.current_font_size_index = (self.current_font_size_index + 1) % len(self.font_sizes)
@@ -106,6 +119,7 @@ class ConfigUI:
         self.console_widget.config(font=(new_font_name, new_font_size))
         self.items_gui.update_font(new_font_name, new_font_size)  # Update the font in items_gui
         self.quests_gui.update_font(new_font_name, new_font_size)  # Update the font in quests_gui
+        self.word_list_gui.update_font(new_font_name, new_font_size)
         self.config_manager.update_config("font_size", new_font_size)
         self.config_manager.save_config()
 
@@ -116,6 +130,7 @@ class ConfigUI:
         self.console_widget.config(font=(new_font_name, new_font_size))
         self.items_gui.update_font(new_font_name, new_font_size)
         self.quests_gui.update_font(new_font_name, new_font_size)
+        self.word_list_gui.update_font(new_font_name, new_font_size)
 
     def cycle_font_type(self):
         # Cycle through fonts
@@ -125,6 +140,7 @@ class ConfigUI:
         self.console_widget.config(font=(new_font, new_font_size))
         self.items_gui.update_font(new_font, new_font_size)  # Update the font in items_gui
         self.quests_gui.update_font(new_font, new_font_size)  # Update the font in quests_gui
+        self.word_list_gui.update_font(new_font, new_font_size)
         self.config_manager.update_config("font", new_font)
         self.config_manager.save_config()
 
@@ -135,7 +151,7 @@ class ConfigUI:
         self.console_widget.config(font=(new_font, new_font_size))
         self.items_gui.update_font(new_font, new_font_size)
         self.quests_gui.update_font(new_font, new_font_size)
-
+        self.word_list_gui.update_font(new_font, new_font_size)
 
     def update_button_positions(self):
         # Get the current canvas width and height
@@ -144,33 +160,38 @@ class ConfigUI:
 
         padding_x = 30  # Horizontal padding from the right edge
         padding_y = 30  # Vertical padding from the bottom edge
-        button_spacing = 10  # Space between buttons
+        button_spacing = 5  # Adjust space between buttons
 
         # Y coordinate for all buttons
         buttons_y = canvas_height - padding_y
 
-        # Start positioning buttons from the right
-        # Calculate X coordinate for the rightmost button (Size)
-        size_button_width = self.canvas.bbox(self.font_size_button_id)[2] - self.canvas.bbox(self.font_size_button_id)[0]
+        # Calculate button widths
+        size_button_width = self.get_button_width(self.font_size_button_id)
+        font_button_width = self.get_button_width(self.font_type_button_id)
+        theme_button_width = self.get_button_width(self.cycle_theme_button_id)
+        delete_save_button_width = self.get_button_width(self.delete_latest_save_button_id)
+        toggle_word_list_button_width = self.get_button_width(self.toggle_word_list_button_id)
+
+        # Calculate X positions for buttons
         size_button_x = canvas_width - padding_x - size_button_width / 2
-
-        # Calculate X coordinate for the Font button
-        font_button_width = self.canvas.bbox(self.font_type_button_id)[2] - self.canvas.bbox(self.font_type_button_id)[0]
         font_button_x = size_button_x - size_button_width / 2 - font_button_width / 2 - button_spacing
-
-        # Calculate X coordinate for the Theme button
-        theme_button_width = self.canvas.bbox(self.cycle_theme_button_id)[2] - self.canvas.bbox(self.cycle_theme_button_id)[0]
         theme_button_x = font_button_x - font_button_width / 2 - theme_button_width / 2 - button_spacing
-
-        # Calculate X coordinate for the Delete Latest Save button
-        delete_save_button_width = self.canvas.bbox(self.delete_latest_save_button_id)[2] - self.canvas.bbox(self.delete_latest_save_button_id)[0]
         delete_save_button_x = theme_button_x - theme_button_width / 2 - delete_save_button_width / 2 - button_spacing
+        toggle_word_list_button_x = delete_save_button_x - delete_save_button_width / 2 - toggle_word_list_button_width / 2 - button_spacing
 
-        # Move the buttons to the new positions
+        # Update button positions
         self.canvas.coords(self.font_size_button_id, size_button_x, buttons_y)
         self.canvas.coords(self.font_type_button_id, font_button_x, buttons_y)
         self.canvas.coords(self.cycle_theme_button_id, theme_button_x, buttons_y)
         self.canvas.coords(self.delete_latest_save_button_id, delete_save_button_x, buttons_y)
+        self.canvas.coords(self.toggle_word_list_button_id, toggle_word_list_button_x, buttons_y)
+
+    def get_button_width(self, button_id):
+        return self.canvas.bbox(button_id)[2] - self.canvas.bbox(button_id)[0]
+
+    def calculate_button_x(self, previous_button_x, previous_button_id, spacing):
+        previous_button_width = self.get_button_width(previous_button_id)
+        return previous_button_x - (previous_button_width / 2) - spacing
 
 
     def reload_all_components(self):
@@ -214,12 +235,6 @@ class ConfigUI:
         # Update the background image
         self.set_initial_background()
 
-    def create_cycle_theme_button(self):
-        # Create the button for cycling themes and place it on the canvas
-        cycle_theme_button = tk.Button(self.root, text="Theme", command=self.cycle_theme)
-        # Create the window once and store its ID
-        self.cycle_theme_button_id = self.canvas.create_window(896, 200, anchor=tk.CENTER, window=cycle_theme_button)
-
     def update_ui_with_theme(self, theme):
         # Get the current canvas width and height
         canvas_width = self.canvas.winfo_width()
@@ -249,11 +264,13 @@ class ConfigUI:
         self.console_widget.config(fg=theme.text_color)
         self.items_gui.update_text_color(theme.text_color)
         self.quests_gui.update_text_color(theme.text_color)
+        self.word_list_gui.update_text_color(theme.text_color)
 
         # Update console background color
         self.console_widget.config(bg=theme.console_bg_color)
         self.items_gui.update_bg_color(theme.console_bg_color)
         self.quests_gui.update_bg_color(theme.console_bg_color)
+        self.word_list_gui.update_bg_color(theme.console_bg_color)
 
         self.canvas.update()
 
