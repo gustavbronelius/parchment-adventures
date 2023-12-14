@@ -9,14 +9,14 @@ class Theme:
 
 # Themes are now defined as a list
 themes_list = [
-    Theme("light", "../assets/images/scroll.png", "black", "white"),
-    Theme("dark", "../assets/images/scroll.png", "white", "black"),
-    Theme("horror", "../assets/images/horror.png", "#E6E6FA", "#1C1C1C"),
-    Theme("sci-fi", "../assets/images/scifi.png", "#00FFFF", "#00008B"),
-    Theme("cyberpunk", "../assets/images/cyberpunk.png", "#FF1493", "#8B008B"),
-    Theme("mystery", "../assets/images/adventure.png", "#DAA520", "#800000"),
-    Theme("steampunk", "../assets/images/steampunk.png", "#B8860B", "#A52A2A"),
-    Theme("fantasy", "../assets/images/fantasy_background.png", "#0000CD", "#FFF8DC"),
-    Theme("post-apocalyptic", "../assets/images/post-apocalyptic.png", "#B22222", "#808080"),
-    # Add more themes here
+    Theme("light", "../assets/images/scroll.png", "#000000", "#FFFFFF"),  # Black text on white background
+    Theme("dark", "../assets/images/scroll.png", "#FFFFFF", "#000000"),  # White text on black background
+    Theme("horror", "../assets/images/horror.png", "#FF0000", "#0D0D0D"),  # Red text on dark gray background
+    Theme("sci-fi", "../assets/images/scifi.png", "#7FFFD4", "#001a33"),  # Aquamarine text on deep navy blue background
+    Theme("cyberpunk", "../assets/images/cyberpunk.png", "#FF00FF", "#2a004d"),  # Magenta text on dark purple background
+    Theme("adventure", "../assets/images/adventure.png",  "#DAA520", "#800000"),  # Yellow text on red background
+    Theme("steampunk", "../assets/images/steampunk.png", "#FFD700", "#662200"),  # Gold text on brown background
+    Theme("fantasy", "../assets/images/fantasy.png", "#00FF00", "#0B3B0B"),  # Green text on dark green background
+    Theme("post-apocalyptic", "../assets/images/post-apocalyptic.png", "#C0C0C0", "#333333"),  # Silver text on dark gray background
 ]
+# Add more themes here
