@@ -30,6 +30,21 @@ After installing Python, you need to navigate to the extracted folder, parchment
 1. Install dependencies (Windows)
 2. start (Windows)
 
+If you are running macOS or Linux, open the Terminal and navigate to the game folder. 
+
+```
+cd ~/Documents/Parchment-adventures-main
+```
+
+```
+pip install -r requirements.txt
+```
+
+```
+cd src
+python main.py
+```
+
 ### Step 5. OpenAI API Key
 The first time you run the game, you will be asked to enter your OpenAI API key (check the black and white console window). 
 
