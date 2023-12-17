@@ -1,8 +1,9 @@
 Version History for Parchment Adventures:
 
 v.0.18
-- Added starting files and python to the game folder
-- Adjusted button placements
+- Added starting files for windows to the game folder.
+- Adjusted button placements.
+- Added a word list that the narrator uses when creating the story.
 - 
 
 v.0.17
