@@ -32,6 +32,7 @@ After installing Python, you need to navigate to the extracted folder, parchment
 
 If you are running macOS or Linux, open the Terminal and navigate to the game folder. 
 
+For example, if you downloaded and extracted the game in your Documents folder:
 ```
 cd ~/Documents/Parchment-adventures-main
 ```
