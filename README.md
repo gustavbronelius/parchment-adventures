@@ -1,6 +1,6 @@
 # Parchment Adventures
 
-Parchment Adventures is an extremely versatile text-based adventure based on generative AI.
+Parchment Adventures is an extremely versatile text-based adventure game based on generative AI.
 
 ![Parchment Adventures Screenshot](assets/images/Parchment-adventures.png)
 
